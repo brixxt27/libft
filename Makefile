@@ -6,7 +6,7 @@
 #    By: jayoon <jayoon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/20 18:08:18 by jayoon            #+#    #+#              #
-#    Updated: 2022/07/02 15:58:49 by jayoon           ###   ########.fr        #
+#    Updated: 2022/07/02 17:57:23 by jayoon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS =		ft_isalnum.c \
 			ft_isascii.c \
 			ft_isdigit.c \
 			ft_isprint.c \
+			ft_isspace.c \
 			ft_tolower.c \
 			ft_toupper.c \
 			ft_strchr.c \
@@ -72,10 +73,10 @@ endif
 all : $(NAME)
 
 $(NAME) : $(OBJ_FILES) $(HEADER)
-	ar rcs $(NAME) $(OBJ_FILES)
+	@ar rcs $(NAME) $(OBJ_FILES)
 
 bonus : 
-	make WITH_BONUS=1
+	@make WITH_BONUS=1
 
 clean : 
 	rm -f $(OBJECTS) $(OBJECTS_B)
