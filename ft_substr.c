@@ -6,7 +6,7 @@
 /*   By: jayoon <jayoon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 23:12:48 by jayoon            #+#    #+#             */
-/*   Updated: 2022/07/12 13:58:50 by jayoon           ###   ########.fr       */
+/*   Updated: 2022/07/12 20:50:42 by jayoon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	str.src = (char *)s;
 	s_len = ft_strlen(s);
 	str.dst = allocate_str_by_length(s_len, len);
-	copy_s_to_ret(&str, start, s_len, len);
+	if (str.dst)
+		copy_s_to_ret(&str, start, s_len, len);
 	return (str.dst);
 }
