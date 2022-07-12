@@ -6,7 +6,7 @@
 /*   By: jayoon <jayoon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 18:25:50 by jayoon            #+#    #+#             */
-/*   Updated: 2022/07/08 18:49:53 by jayoon           ###   ########.fr       */
+/*   Updated: 2022/07/12 13:58:34 by jayoon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ typedef enum e_is_delimeter
 
 typedef struct s_utils_substr
 {
-	size_t	i;
-	char	*ret;
-}	t_len;
+	char	*dst;
+	char	*src;
+}	t_str;
 
 int			ft_atoi(const char *str);
 int			ft_isalnum(int c);
