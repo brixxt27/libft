@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isint.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jayoon <jayoon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 16:56:35 by jayoon            #+#    #+#             */
-/*   Updated: 2022/07/20 20:08:09 by jayoon           ###   ########.fr       */
+/*   Created: 2022/07/15 17:13:29 by jayoon            #+#    #+#             */
+/*   Updated: 2022/07/21 18:00:12 by jayoon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putchar_fd(char c, int fd)
+int	ft_isint(ssize_t num)
 {
-	int	len;
-
-	len = write(fd, &c, 1);
-	return (len);
+	if (num <= INT_MAX && num >= INT_MIN)
+		return (1);
+	return (0);
 }

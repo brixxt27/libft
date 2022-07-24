@@ -6,14 +6,18 @@
 /*   By: jayoon <jayoon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 18:25:50 by jayoon            #+#    #+#             */
-/*   Updated: 2022/07/12 22:54:09 by jayoon           ###   ########.fr       */
+/*   Updated: 2022/07/21 20:26:09 by jayoon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
@@ -35,6 +39,7 @@ typedef struct s_utils_substr
 }	t_str;
 
 int			ft_atoi(const char *str);
+ssize_t		ft_atol(const char *str);
 int			ft_isalnum(int c);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
@@ -42,6 +47,7 @@ int			ft_isascii(int c);
 int			ft_isprint(int c);
 int			ft_isspace(int c);
 int			ft_issign(int c);
+int			ft_isint(ssize_t num);
 size_t		ft_strlen(const char *s);
 void		*ft_memset(void *s, int c, size_t n);
 void		ft_bzero(void *s, size_t n);

@@ -6,7 +6,7 @@
 #    By: jayoon <jayoon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/20 18:08:18 by jayoon            #+#    #+#              #
-#    Updated: 2022/07/12 22:54:41 by jayoon           ###   ########.fr        #
+#    Updated: 2022/07/15 17:16:35 by jayoon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS =		ft_isalnum.c \
 			ft_isprint.c \
 			ft_isspace.c \
 			ft_issign.c \
+			ft_isint.c \
 			ft_tolower.c \
 			ft_toupper.c \
 			ft_strchr.c \
@@ -31,6 +32,7 @@ SRCS =		ft_isalnum.c \
 			ft_strlcat.c \
 			ft_strnstr.c \
 			ft_atoi.c \
+			ft_atol.c \
 			ft_calloc.c \
 			ft_strdup.c \
 			ft_memset.c \

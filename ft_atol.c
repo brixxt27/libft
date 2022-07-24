@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jayoon <jayoon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 20:51:39 by jayoon            #+#    #+#             */
-/*   Updated: 2022/07/15 15:51:11 by jayoon           ###   ########.fr       */
+/*   Created: 2022/07/15 15:09:43 by jayoon            #+#    #+#             */
+/*   Updated: 2022/07/22 17:04:50 by jayoon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	init_utils(int *p_res, int *p_sign)
+static void	init_utils(ssize_t *p_result, int *p_sign)
 {
-	*p_res = 0;
+	*p_result = 0;
 	*p_sign = 1;
 }
 
@@ -25,35 +25,44 @@ static const char	*pass_space(const char *str)
 	return (str);
 }
 
-static const char	*check_sign(const char *str, int *psign)
+static const char	*check_sign(const char *str, int *p_sign)
 {
-	*psign = 1;
-	if (*str == '+' || *str == '-')
+	if (ft_issign(*str))
 	{
 		if (*str == '-')
-			*psign = -1;
+			*p_sign = -1;
 		str++;
 	}
 	return (str);
 }
 
-static void	make_atoi(const char *str, int *pres)
+static size_t	do_atol(const char *str, ssize_t *p_result)
 {
+	size_t	len;
+
+	len = 0;
 	while (ft_isdigit(*str))
 	{
-		*pres = 10 * *pres + *str - '0';
+		*p_result = 10 * *p_result + *str - '0';
 		str++;
+		len++;
 	}
+	return (len);
 }
 
-int	ft_atoi(const char *str)
+ssize_t	ft_atol(const char *str)
 {
-	int		res;
 	int		sign;
+	ssize_t	result;
+	size_t	len;
 
-	init_utils(&res, &sign);
+	init_utils(&result, &sign);
 	str = pass_space(str);
 	str = check_sign(str, &sign);
-	make_atoi(str, &res);
-	return (sign * res);
+	len = do_atol(str, &result);
+	if (len > 19 && sign == 1)
+		return ((ssize_t)INT_MAX + 1);
+	else if (len > 19 && sign == -1)
+		return ((ssize_t)INT_MIN - 1);
+	return ((ssize_t)sign * result);
 }
