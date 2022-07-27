@@ -6,7 +6,7 @@
 #    By: jayoon <jayoon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/20 18:08:18 by jayoon            #+#    #+#              #
-#    Updated: 2022/07/15 17:16:35 by jayoon           ###   ########.fr        #
+#    Updated: 2022/07/25 02:46:04 by jayoon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,9 @@ SRCS =		ft_isalnum.c \
 			ft_putchar_fd.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
-			ft_putnbr_fd.c
+			ft_putnbr_fd.c \
+			get_next_line.c\
+			get_next_line_utils.c
 		
 SRCS_B = 		ft_lstnew.c \
 				ft_lstadd_front.c \

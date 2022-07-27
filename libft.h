@@ -6,7 +6,7 @@
 /*   By: jayoon <jayoon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 18:25:50 by jayoon            #+#    #+#             */
-/*   Updated: 2022/07/21 20:26:09 by jayoon           ###   ########.fr       */
+/*   Updated: 2022/07/25 04:45:20 by jayoon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,48 @@ typedef struct s_utils_substr
 	char	*src;
 }	t_str;
 
+// gnl
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+typedef struct s_util
+{
+	int				fd;
+	char			buf[BUFFER_SIZE];
+	ssize_t			index;
+	ssize_t			ret_read;
+	struct s_util	*next;
+}	t_util;
+
+typedef struct s_string
+{
+	char	*str;
+	size_t	len;
+	size_t	malloc_size;
+}	t_string;
+
+typedef enum e_util_of_status
+{
+	SUCCESS = 0,
+	FAIL,
+	EXIST,
+	NOT_EXIST,
+	MALLOC_ERROR
+}	t_cond;
+
+//gnl
+char		*get_next_line(int fd);
+t_cond		copy_buffer_to_string(t_util *curr, t_string *ps);
+char		*make_return(int fd, t_util *head, t_util **phead, t_string *ps);
+t_cond		read_and_copy_to_str(int fd, t_util *curr, t_string *ps);
+t_cond		find_node(int fd, t_util **phead, t_util **pcurr);
+t_cond		init_string(t_string *ps);
+char		*delete_current_node(int fd, t_util *head, t_util **phead);
+char		*free_string(t_string *ps);
+t_cond		stretch_string(t_string *ps);
+
+// libft
 int			ft_atoi(const char *str);
 ssize_t		ft_atol(const char *str);
 int			ft_isalnum(int c);
